@@ -1,30 +1,25 @@
 total = 0.0
+menu = {
+    "baja taco": 4.25,
+    "burrito": 7.50,
+    "bowl": 8.50,
+    "nachos": 11.00,
+    "quesadilla": 8.50,
+    "super burrito": 8.50,
+    "super quesadilla": 9.50,
+    "taco": 3.00,
+    "tortilla salad": 8.00
+}
+
 try:
     while True:
-        input_item = input()
-        item = ""
-        for i in input_item:
-            item += i.lower()
+        input_item = input("item\n").lower()
 
-        if item == "baja taco":
-            total += 4.25
-        elif item == "burrito":
-            total += 7.50
-        elif item == "bowl":
-            total += 8.50
-        elif item == "nachos":
-            total += 11.00
-        elif item == "quesadilla":
-            total += 8.50
-        elif item == "super burrito":
-            total += 8.50
-        elif item == "super quesadilla":
-            total += 9.50
-        elif item == "taco":
-            total += 3.00
-        elif item == "tortilla salad":
-            total += 8.00
-        print("total: $", format(total, ".2f"), sep='')
+        if not input_item in menu:# fail condition causing a re-prompt
+            continue
+
+        total += menu[input_item]# adds the cost of the item to the total
+        print(f"total: $ {format(total, ".2f")}")
 
 except EOFError:
-    print("")
+    ...

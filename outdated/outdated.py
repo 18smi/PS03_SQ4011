@@ -1,26 +1,9 @@
-input_string = input("m/d/y number or words\n") + '\0'
-day = ""
-month = ""
-year= ""
+input_string = input("m/d/y number or words\n")
+
 
 if (input_string[0].isdigit()):
-    pos = 0
-    while input_string[pos] != '/':
-        month += input_string[pos]
-        pos += 1
-    if len(month) == 1:
-        month = '0' + month
-    pos += 1
-    while input_string[pos] != '/':
-        day += input_string[pos]
-        pos += 1
-    if len(day) == 1:
-        day = '0' + day
-    pos += 1
-    while input_string[pos] != '\0':
-        year += input_string[pos]
-        pos += 1
-    print(year + '/' + month + '/' + day)
+    input_string.split('/')
+    print(input_string[2] + '/' + input_string[0] + '/' + input_string[1])# yyyy/mm/dd
 
 else:
     pos = 0
